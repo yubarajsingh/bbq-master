@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,900&display=swap" rel="stylesheet">
+    <title>bbq</title>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="pic">
+        <div class="box container-pic">    
+            <h1>learn how to make <strong> the best BBQ ribs </strong>in the town </h1>
+            
+            <p>join us for seminar</p>
+            
+            <p class="top-text">mouthwatering Delicious</p>
+        </div>
+    </div>
+        <div class="form"> 
+            <div class="box" id="Main-Content">
+            <h2>Become BBQ master !</h2>
+            <p>Register Today</p>
+            <p>BBQ isn't just standing in front of your grill with it on full blast and hoping for the best. It's an art! One way to speed up the process is to learn from the best. You can do just that by signing up for this free webinar!</p>
+           <form id="Email-Collector" action="#" class="mail">
+            <input type="text" name="firstName" placeholder="first name">
+            <input type="email"  placeholder="email">
+            <button type="submit" class="btn btn-primary" type="submit">Register</button>
+        </form>
+            <p class="fine-print">We'll never share your information without your permission</p>
+        </div>
+    </div>
+    </div>
+    <script>
+        let emailCollectorForm = document.getElementById("Email-Collector")
+        emailCollectorForm.addEventListener("submit", event => {
+            event.preventDefault()
+            // Do something with the event
+            console.log("The event is firing!")
+            
+            let ourFormData = new FormData(event.target)
+            
+            let userFirstName = ourFormData.get("firstName")
+            
+            let updatedHtmlContent = `
+                <h2>Congratulations, ${userFirstName}!</h2>
+
+                <p>You're on your way to becoming a BBQ Master!</p>
+                
+                <p class="fine-print">We'll never share your information without your permission</p>
+            `
+            let ourMainContent = document.getElementById("Main-Content")
+            ourMainContent.innerHTML = updatedHtmlContent
+        })
+    </script>
+
+</body>
+</html>
